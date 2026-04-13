@@ -1,7 +1,7 @@
 #!/bit/bash
 
-person1="ramesh"
-person2="suresh"
+person1="chinna"
+person2="kanna"
 
 echo "Hello World"
 echo "$person1:: hii $person2, what are you doing"
