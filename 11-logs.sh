@@ -10,8 +10,7 @@ N="\e[0m"
  Log_File="$Logs_Folder/$Script_Name.log"
 
  mkdir -p $Logs_Folder
- echo "Script execution started at: $(date)" >> $Log_File
-
+ echo "Script execution started at: $(date)" | tee -a $Log_File
 if [ $UserId -ne 0 ]; then
     echo "you can give sudo access to this script to run as root user"
     exit 1 
@@ -19,9 +18,9 @@ fi
 
 validate (){
    if [ $1 -ne 0 ]; then
-    echo -e "Installation $2 $R failed $N"
+    echo -e "Installation $2 $R failed $N" | tee -a $Log_File
 else
-    echo -e "Installation $2 $G successful $N"
+    echo -e "Installation $2 $G successful $N" | tee -a $Log_File
 fi 
 }
 
@@ -33,7 +32,7 @@ if [ $? -ne 0 ]; then
 }
     
 else
-    echo -e "MySQL already exist ... $Y SKIPPING $N"
+    echo -e "MySQL already exist ... $Y SKIPPING $N" | tee -a $Log_File
 fi
 dnf list installed nginx &>>$Log_File
 if [ $? -ne 0 ]; then
@@ -43,7 +42,7 @@ if [ $? -ne 0 ]; then
 }
     
 else
-    echo -e "Nginx already exist ... $Y SKIPPING $N"
+    echo -e "Nginx already exist ... $Y SKIPPING $N" | tee -a $Log_File
 fi
 
 dnf list installed python3 &>>$Log_File
@@ -54,5 +53,5 @@ if [ $? -ne 0 ]; then
 }
     
 else
-    echo -e "Python3 already exist ... $Y SKIPPING $N"
+    echo -e "Python3 already exist ... $Y SKIPPING $N" | tee -a $Log_File
 fi
