@@ -7,5 +7,5 @@ if [ $Number -gt 100 ]; then
 elif [ $Number -eq 100 ]; then
     echo "Number is $Number equal to 100"
 else
-    echo "Number is less than 100"
+    echo "Number is $Number less than 100"
 fi
