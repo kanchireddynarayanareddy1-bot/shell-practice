@@ -1,8 +1,8 @@
 #!/bin/bash
 
-Number=$(id -u)
+UserId=$(id -u)
 
-if [ $Number -ne 0 ]; then
+if [ $UserId -ne 0 ]; then
     echo "you can give sudo access to this script to run as root user""
 fi
 
