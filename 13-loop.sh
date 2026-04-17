@@ -14,8 +14,6 @@ echo "Script execution started at: $(date)" | tee -a $LogFile
 
 if [ $UserId -ne 0 ]; then
     echo "you can give sudo access to this script to run as root user"
-    exit 1
-
 fi
 validate (){
    if [ $1 -ne 0 ]; then
