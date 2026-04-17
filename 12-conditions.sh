@@ -1,6 +1,8 @@
 #!/bin/bash
 R="\e[31m"
 G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 userId=$(id -u)
 Folder="/var/log/shell-script"
 ScriptName=$(echo $0 | cut -d'.' -f1)
