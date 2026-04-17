@@ -19,21 +19,13 @@ else
     echo "Installation $2...$G successful $N" | tee -a $LogFile
 fi 
 }
-dnf list installed mysql 
+dnf list installed mysql &>>$LogFile
 if [ $? -ne 0 ]; then
 {
-    dnf install mysql -y
+    dnf install mysql -y &>>$LogFile
     validate $? "mysql"
 }
 else
     echo "Mysql already exist...$Y SKIPPING $N" | tee -a $LogFile
     exit 1
-fi
-
-dnf install mysql -y &>>$LogFile
- if [ $? -ne 0 ]; then
-    echo "Mysql Installation...$R failed $N" | tee -a $LogFile
-else
-  
-    echo "Mysql Installation...$G successful $N" | tee -a $LogFile
 fi
