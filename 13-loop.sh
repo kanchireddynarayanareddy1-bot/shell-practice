@@ -15,15 +15,17 @@ echo "Script execution started at: $(date)" | tee -a $LogFile
 if [ $UserId -ne 0 ]; then
     echo "you can give sudo access to this script to run as root user"
     exit 1
+
 fi
-function validate (){
+validate (){
    if [ $1 -ne 0 ]; then
     echo -e "Installation $2 $R failed $N" | tee -a $LogFile
 else
     echo -e "Installation $2 $G successful $N" | tee -a $LogFile
 fi 
 }
-for package in $@ do
+for package in $@ 
+do
     dnf list installed $package 
     if [ $? -ne 0 ]; then
         {
