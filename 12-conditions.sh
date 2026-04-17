@@ -1,7 +1,7 @@
 #!/bin/bash
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
+R="\e[031m"
+G="\e[032m"
+Y="\e[033m"
 N="\e[0m"
 userId=$(id -u)
 Folder="/var/log/shell-script"
