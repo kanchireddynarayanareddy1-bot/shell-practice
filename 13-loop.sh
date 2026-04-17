@@ -13,7 +13,7 @@ mkdir -p $Folder
 echo "Script execution started at: $(date)" | tee -a $LogFile   
 
 if [ $UserId -ne 0 ]; then
-    echo "you can give sudo access to this script to run as root user"
+    echo "you can give sudo access to this script to run as root user" | tee -a $LogFile
 fi
 validate (){
    if [ $1 -ne 0 ]; then
@@ -24,7 +24,7 @@ fi
 }
 for package in $@ 
 do
-    dnf list installed $package 
+    dnf list installed $package  &>>$LogFile
     if [ $? -ne 0 ]; then
         {
             dnf install $package -y &>>$LogFile
