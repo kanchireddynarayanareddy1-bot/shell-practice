@@ -13,8 +13,8 @@ mkdir -p $Folder
 echo "Script execution started at: $(date)" | tee -a $LogFile
 dnf install mysql -y &>>$LogFile
  if [ $? -ne 0 ]; then
-    echo "Mysql Installation..."$R failed $N" 
-
+    echo "Mysql Installation..."$R failed $N"" | tee -a $LogFile
 else
-    echo "Mysql Installation..."$G successful $N "
-fi  
+  
+    echo "Mysql Installation..."$G successful $N"" | tee -a $LogFile
+fi
