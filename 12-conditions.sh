@@ -29,7 +29,6 @@ if [ $? -ne 0 ]; then
 }
 else
     echo -e "Mysql already exist...$Y SKIPPING $N" | tee -a $LogFile
-    exit 1
 fi
 dnf list installed nginx &>>$LogFile
 if [ $? -ne 0 ]; then
