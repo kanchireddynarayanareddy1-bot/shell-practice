@@ -31,3 +31,13 @@ else
     echo -e "Mysql already exist...$Y SKIPPING $N" | tee -a $LogFile
     exit 1
 fi
+dnf list installed nginx &>>$LogFile
+if [ $? -ne 0 ]; then
+{
+    dnf install nginx -y &>>$LogFile
+    validate $? "nginx"
+}
+else
+    echo -e "Nginx already exist...$Y SKIPPING $N" | tee -a $LogFile
+    exit 1
+fi
