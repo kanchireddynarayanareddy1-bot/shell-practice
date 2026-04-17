@@ -8,7 +8,8 @@ N="\e[0m"
 
 Folder="/var/log/shell-script"
 ScriptName=$(echo $0 | cut -d'.' -f1)
-LogFile="$Folder/$ScriptName.log"   
+LogFile="$Folder/$ScriptName.log"  
+ 
 mkdir -p $Folder
 echo "Script execution started at: $(date)" | tee -a $LogFile   
 
