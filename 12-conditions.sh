@@ -16,9 +16,9 @@ if [ $userId -ne 0 ]; then
 fi
 validate (){
    if [ $1 -ne 0 ]; then
-    echo "Installation $2...$R failed $N" | tee -a $LogFile
+    echo "Installation $2 ...$R failed $N" | tee -a $LogFile
 else
-    echo "Installation $2...$G successful $N" | tee -a $LogFile
+    echo "Installation $2 ...$G successful $N" | tee -a $LogFile
 fi 
 }
 dnf list installed mysql &>>$LogFile
