@@ -1,4 +1,9 @@
 #!/bin/bash
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+B="\e[34m"
+N="\e[0m"
 
 USERID=$(id -u)
 
@@ -26,10 +31,10 @@ fi
  
 VALIDATE(){
     if [ $1 -ne 0 ];then
-      echo "ERROR: $2 installation failed"
+      echo -e "$R ERROR: $2 installation failed $N"
       exit 1 #failure is other than 0 like (1,2,3,4,5,6,7,8,9)
     else
-      echo "$2 installation is successful"
+      echo -e "$G $2 installation is successful $N"
     fi
 }
 
