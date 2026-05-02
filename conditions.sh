@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 Number=$@
 if [ $Number -gt 100 ]; then
