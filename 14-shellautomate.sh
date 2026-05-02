@@ -1,14 +1,19 @@
 #!bin/bash
 
-UserId=$(id -u)
-R="\e[031m"
-G="\e[032m"
-Y="\e[033m"
-N="\e[0m"
-Folder="/var/log/Shell-Automate"
-ScriptName=$(echo $0 | cut -d'.' -f1)
-LogFile="$Folder/$ScriptName.log"
-mkdir -p $Folder
-echo "Script execution started at: $(date)" | tee -a $LogFile
+AMI_Id=ami-0220d79f3f480ecf5
+SG-Id=sg-06d62d571b6f2f92f
+
+for instace in $@
+do 
+  Instance_Id= $(aws ec2 run-instances --image-id ami-0220d79f3f480ecf5 --instance-type t3.micro --security-group-ids sg-06d62d571b6f2f92f --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query 'Instances[0].InstanceId' --output text)
+
+  if [ $Instance != "frontend" ]; then
+    IP=$(aws ec2 describe-instances --instance-ids $Instance_Id --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
+   else
+    IP=$(aws ec2 describe-instances --instance-ids $Instance_Id --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
+     fi
+echo "$instance:$IP"
+
+done
 
 
