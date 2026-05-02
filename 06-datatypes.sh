@@ -15,4 +15,7 @@ echo "SUM is: ${SUM}"
 echo "All leaders: ${LEADERS[@]}"
 echo "First Leader: ${LEADERS[0]}"
 echo "First Leader: ${LEADERS[10]}"
+# needs to be in double quotes to preserve the space
+LEADERS[4]="Biden"
+echo "All leaders: ${LEADERS[@]}"
 
