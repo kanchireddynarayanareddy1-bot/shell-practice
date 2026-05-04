@@ -45,13 +45,13 @@ else
     echo -e "Nginx already exist ... $Y SKIPPING $N" | tee -a $Log_File
 fi
 
-dnf list installed python3 &>>$Log_File
-if [ $? -ne 0 ]; then
-{
-    dnf install python3 -y &>>$Log_File
-    validate $? "python3"
-}
+# dnf list installed python3 &>>$Log_File
+# if [ $? -ne 0 ]; then
+# {
+#     dnf install python3 -y &>>$Log_File
+#     validate $? "python3"
+# }
     
-else
-    echo -e "Python3 already exist ... $Y SKIPPING $N" | tee -a $Log_File
-fi
+# else
+#     echo -e "Python3 already exist ... $Y SKIPPING $N" | tee -a $Log_File
+# fi
