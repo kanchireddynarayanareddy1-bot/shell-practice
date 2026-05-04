@@ -37,10 +37,10 @@ fi
  
 VALIDATE(){
     if [ $1 -ne 0 ];then
-      echo -e " ERROR: $2 installation $R FAILURE $N" | tee -a $LOG_FILE
+      echo -e " ERROR: $2 installation $R FAILURE $N" | tee -a  $LOG_FILE
       exit 1 #failure is other than 0 like (1,2,3,4,5,6,7,8,9)
     else
-      echo -e " $2 installation is  $G SUCCESS $N"  | tee -a $LOG_FILE
+      echo -e " $2 installation is  $G SUCCESS $N"  | tee -a  $LOG_FILE
     fi
 }
 
